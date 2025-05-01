@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Numeroloji Uygulaması</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: auto; }
+    select, button { margin: 10px 0; padding: 8px; font-size: 16px; }
+    #sonuc { margin-top: 20px; white-space: pre-wrap; background: #f9f9f9; padding: 15px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h2>Numerolojik Bilgi Al</h2>
+
+  <label for="sayi">Sayı Seç:</label><br>
+  <select id="sayi">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+    <option>7</option>
+    <option>8</option>
+    <option>9</option>
+    <option>11</option>
+    <option>22</option>
+  </select><br>
+
+  <label for="kategori">Kategori Seç:</label><br>
+  <select id="kategori">
+    <option>Ruh Güdüsü</option>
+    <option>İç Güdüsü</option>
+    <option>İfade</option>
+    <option>Meslek</option>
+    <option>Hayat Yolu</option>
+  </select><br>
+
+  <button onclick="veriyiGetir()">Bilgiyi Göster</button>
+
+  <div id="sonuc">Seçim yaparak bilgi alabilirsiniz.</div>
+
+  <script src="data.js"></script>
+  <script>
+    function veriyiGetir() {
+      const sayi = document.getElementById("sayi").value;
+      const kategori = document.getElementById("kategori").value;
+
+      if (veri[sayi] && veri[sayi][kategori]) {
+        document.getElementById("sonuc").innerText = veri[sayi][kategori];
+      } else {
+        document.getElementById("sonuc").innerText = "Bu kombinasyona ait bilgi bulunamadı.";
+      }
+    }
+  </script>
+</body>
+</html>
